@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -30,7 +29,7 @@ public class Player : MonoBehaviour
         {
             shootController.Shoot();
         }
-        if(GameObject.Find("Particle System(Clone)"))
+        if (GameObject.Find("Particle System(Clone)"))
         {
             Destroy(GameObject.Find("Particle System(Clone)"), 0.5f);
         }
@@ -44,7 +43,7 @@ public class Player : MonoBehaviour
         style.normal.textColor = Color.yellow;
         style.alignment = TextAnchor.MiddleCenter;
 
-        if(isAlive == false || isFinish == true)
+        if (isAlive == false || isFinish == true)
         {
             string txt;
             if (isAlive == false) { txt = "Проиграл"; }
@@ -83,7 +82,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("deadZone"))
+        if (collision.gameObject.CompareTag("deadZone"))
         {
             isAlive = false;
         }

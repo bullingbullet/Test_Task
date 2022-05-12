@@ -22,10 +22,10 @@ public class Bullet : MonoBehaviour
         RaycastHit hit;
 
         Debug.DrawLine(lastPos, transform.position);
-        if(Physics.Linecast(lastPos, transform.position, out hit))
+        if (Physics.Linecast(lastPos, transform.position, out hit))
         {
             print(hit.transform.name);
-            if(hit.collider.name == "agent")
+            if (hit.collider.name == "agent")
             {
                 Destroy(hit.collider.gameObject);
             }

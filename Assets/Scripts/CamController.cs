@@ -15,6 +15,7 @@ public class CamController : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = true;
     }
 
     private void Update()
@@ -32,13 +33,9 @@ public class CamController : MonoBehaviour
     {
         Ray ray = new Ray(transform.position, transform.forward * 2000);
         RaycastHit hit;
-        if(Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit))
         {
             camLook.position = Vector3.Lerp(camLook.position, hit.point, Time.deltaTime * 40);
-            if(hit.collider.name == "agent")
-            {
-                //hit.collider.gameObject.GetComponent<Renderer>().material = agentColors[1];
-            }
         }
     }
 }
