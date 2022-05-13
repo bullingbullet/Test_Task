@@ -15,7 +15,6 @@ public class CamController : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = true;
     }
 
     private void Update()
@@ -26,6 +25,7 @@ public class CamController : MonoBehaviour
         player.Rotate(mouseX * Vector3.up);
 
         transform.Rotate(-mouseY * Vector3.right);
+
         CamLook();
     }
 
@@ -33,6 +33,7 @@ public class CamController : MonoBehaviour
     {
         Ray ray = new Ray(transform.position, transform.forward * 2000);
         RaycastHit hit;
+
         if (Physics.Raycast(ray, out hit))
         {
             camLook.position = Vector3.Lerp(camLook.position, hit.point, Time.deltaTime * 40);

@@ -24,15 +24,19 @@ public class Bullet : MonoBehaviour
         Debug.DrawLine(lastPos, transform.position);
         if (Physics.Linecast(lastPos, transform.position, out hit))
         {
-            print(hit.transform.name);
             if (hit.collider.name == "agent")
             {
                 Destroy(hit.collider.gameObject);
+                
+                SaveLog.sw.WriteLine("Hit agent", true);  
             }
 
             Instantiate(particleSystem, lastPos, gameObject.transform.rotation);
 
-            Destroy(gameObject);
+            if (!hit.collider.gameObject.CompareTag("AgentBullet"))
+            {
+                Destroy(gameObject);
+            }
         }
         lastPos = transform.position;
     }

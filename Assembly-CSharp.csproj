@@ -71,6 +71,8 @@
     <Compile Include="Assets\Scripts\Player\CamController.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Player\ShootController.cs" />
+    <Compile Include="Assets\Scripts\SaveLog.cs" />
+    <None Include="Assets\Resources\Log.txt" />
     <None Include="Assets\QuickOutline\Resources\Shaders\OutlineMask.shader" />
     <None Include="Assets\QuickOutline\Readme.txt" />
     <None Include="Assets\QuickOutline\Resources\Shaders\OutlineFill.shader" />

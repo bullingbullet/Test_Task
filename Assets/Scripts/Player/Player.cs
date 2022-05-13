@@ -21,14 +21,26 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (timer <= 0)
+        if (timer <= 0 && isAlive == false)
         {
+            SaveLog.sw.WriteLine("Lose", true);
+            SaveLog.sw.Close();
+
             SceneManager.LoadScene("Main");
         }
+        else if (timer <= 0 && isFinish == true)
+        {
+            SaveLog.sw.WriteLine("Win", true);
+            SaveLog.sw.Close();
+
+            SceneManager.LoadScene("Main");
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             shootController.Shoot();
         }
+
         if (GameObject.Find("Particle System(Clone)"))
         {
             Destroy(GameObject.Find("Particle System(Clone)"), 0.5f);

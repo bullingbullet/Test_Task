@@ -12,6 +12,7 @@ public class Agent : MonoBehaviour
     public Transform agentFirePos;
 
     public List<Material> agentColors;
+
     public List<Transform> points;
 
     public float fireRate = 0.5f;

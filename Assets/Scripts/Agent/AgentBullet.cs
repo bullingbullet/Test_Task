@@ -6,7 +6,7 @@ public class AgentBullet : MonoBehaviour
 {
     Vector3 lastPos;
 
-    public static float punchForce = 900;
+    public float punchForce = 5f;
     public float speed;
 
     private void Start()
@@ -25,7 +25,9 @@ public class AgentBullet : MonoBehaviour
         {
             if (hit.collider.name == "player")
             {
-                Destroy(gameObject, 0.3f);
+                GameObject player = hit.collider.gameObject;
+                player.GetComponent<Rigidbody>().AddForce(Vector3.back * punchForce, ForceMode.Impulse);
+                Destroy(gameObject);
             }
             else
             {

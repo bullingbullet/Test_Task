@@ -12,6 +12,9 @@ public class ShootController : MonoBehaviour
     public void Shoot()
     {
         firePos.LookAt(camLook);
+
         Instantiate(bullet, firePos.position, firePos.rotation);
+
+        SaveLog.sw.WriteLine("Shoot");
     }
 }

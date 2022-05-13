@@ -1599,12 +1599,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 839602845}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &877556722 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2777110482747372080, guid: bee44ad03c4a5e9419dad555f510cd4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2777110482012979650}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &877556727 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2777110482747372085, guid: bee44ad03c4a5e9419dad555f510cd4e,
     type: 3}
   m_PrefabInstance: {fileID: 2777110482012979650}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &877556729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877556722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cfc5f11859bcbb4bb65c0629c4995d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &892912218 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3182516145259362212, guid: bf2c007671cabde4ba778f237e33089b,
@@ -35871,12 +35889,12 @@ PrefabInstance:
     - target: {fileID: 2777110482747372090, guid: bee44ad03c4a5e9419dad555f510cd4e,
         type: 3}
       propertyPath: m_Mass
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2777110482747372090, guid: bee44ad03c4a5e9419dad555f510cd4e,
         type: 3}
       propertyPath: m_Drag
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bee44ad03c4a5e9419dad555f510cd4e, type: 3}
