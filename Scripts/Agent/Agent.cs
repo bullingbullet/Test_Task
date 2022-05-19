@@ -24,7 +24,9 @@ public class Agent : MonoBehaviour
         if (Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
+
             GameObject _AgentBullet = Instantiate(agentBullet, agentFirePos.position, agentFirePos.rotation);
+
             Destroy(_AgentBullet, 1);
         }
 

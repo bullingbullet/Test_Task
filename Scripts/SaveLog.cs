@@ -13,17 +13,17 @@ public class SaveLog : MonoBehaviour
 
     private void Start()
     {
-        logFile = File.ReadAllText(logPath);
         LogClean();
+
         SaveLine("Start");
     }
 
     private void LogClean()
     {
-        Debug.LogWarning(logFile.Length);
+        logFile = File.ReadAllText(logPath);
+
         if (logFile.Length >= maxLengthLog)
         {
-            Debug.LogWarning("amogus");
             File.WriteAllText(logPath, string.Empty);
         }
     }

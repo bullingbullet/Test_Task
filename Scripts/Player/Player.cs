@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -44,7 +43,9 @@ public class Player : MonoBehaviour
     IEnumerator EndGame(string issueGame)
     {
         yield return new WaitForSeconds(2f);
+
         SaveLog.SaveLine(issueGame);
+
         SceneLoader.SceneLoad("Main");
     }
 
