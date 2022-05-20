@@ -4,9 +4,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private readonly float speed = 4f;
+
+    private string endSessionText;
     
-    private bool isAlive = true;
-    private bool isFinish = false;
+    private bool isAlive;
+    private bool isFinish;
 
     [SerializeField] private ShootController shootController;
 
@@ -20,6 +22,15 @@ public class Player : MonoBehaviour
     {
         Movement();
 
+        CheckState();
+
+        shootController.Shoot();
+
+        DestroyParticles();
+    }
+
+    private void CheckState()
+    {
         if (isAlive == false)
         {
             StartCoroutine(EndGame("Lose"));
@@ -28,16 +39,11 @@ public class Player : MonoBehaviour
         {
             StartCoroutine(EndGame("Win"));
         }
+    }
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            shootController.Shoot();
-        }
-
-        if (GameObject.Find("Particle System(Clone)"))
-        {
-            Destroy(GameObject.Find("Particle System(Clone)"), 0.5f);
-        }
+    private static void DestroyParticles()
+    {
+        Destroy(GameObject.Find("Particle System(Clone)"), 0.5f);
     }
 
     IEnumerator EndGame(string issueGame)
@@ -59,16 +65,7 @@ public class Player : MonoBehaviour
 
         if (isAlive == false || isFinish == true)
         {
-            string txt;
-            if (isAlive == false) 
-            { 
-                txt = "Проиграл"; 
-            }
-            else 
-            { 
-                txt = "Выиграл"; 
-            }
-            GUI.Label(new Rect(Screen.width / 2, Screen.height / 2, 20, 10), txt, style);
+            GUI.Label(new Rect(Screen.width / 2, Screen.height / 2, 20, 10), endSessionText, style);
         }
     }
 
@@ -103,10 +100,14 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("deadZone"))
         {
             isAlive = false;
+
+            endSessionText = "Проиграл";
         }
         if (collision.gameObject.CompareTag("Finish"))
         {
             isFinish = true;
+
+            endSessionText = "Выиграл";
         }
     }
 }

@@ -14,8 +14,18 @@ public class AgentBullet : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(speed * Time.deltaTime * Vector3.forward);
+        AgentBulletTranslatePosition();
 
+        AgentBulletCheckHits();
+    }
+
+    private void AgentBulletTranslatePosition()
+    {
+        transform.Translate(speed * Time.deltaTime * Vector3.forward);
+    }
+
+    private void AgentBulletCheckHits()
+    {
         if (Physics.Linecast(lastPos, transform.position, out RaycastHit hit))
         {
             if (hit.collider.name == "player")

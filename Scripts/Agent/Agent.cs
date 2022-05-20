@@ -4,7 +4,6 @@ using UnityEngine.AI;
 
 public class Agent : MonoBehaviour
 {
-    [SerializeField] private GameObject sight;
     [SerializeField] private GameObject agentBullet;
 
     [SerializeField] private Transform player;
@@ -21,17 +20,27 @@ public class Agent : MonoBehaviour
 
     private void Update()
     {
+        AgentShoot();
+
+        AgentMovement();
+    }
+
+    private void AgentShoot()
+    {
         if (Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
 
             GameObject _AgentBullet = Instantiate(agentBullet, agentFirePos.position, agentFirePos.rotation);
 
-            Destroy(_AgentBullet, 1);
+            Destroy(_AgentBullet, 1f);
         }
+    }
 
+    private void AgentMovement()
+    {
         transform.LookAt(player);
-        
+
         if (agent.remainingDistance <= agent.stoppingDistance)
         {
             agent.SetDestination(points[Random.Range(0, points.Count)].position);

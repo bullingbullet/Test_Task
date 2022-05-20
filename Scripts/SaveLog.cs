@@ -20,11 +20,14 @@ public class SaveLog : MonoBehaviour
 
     private void LogClean()
     {
-        logFile = File.ReadAllText(logPath);
-
-        if (logFile.Length >= maxLengthLog)
+        if (File.Exists(logPath))
         {
-            File.WriteAllText(logPath, string.Empty);
+            logFile = File.ReadAllText(logPath);
+
+            if (logFile.Length >= maxLengthLog)
+            {
+                File.WriteAllText(logPath, string.Empty);
+            }
         }
     }
 
@@ -34,6 +37,5 @@ public class SaveLog : MonoBehaviour
         {
             logWriter.WriteLine(Line);
         }
-        print("sds");
     }
 }

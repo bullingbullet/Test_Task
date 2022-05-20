@@ -9,10 +9,13 @@ public class ShootController : MonoBehaviour
 
     public void Shoot()
     {
-        firePos.LookAt(camLook);
+        if (Input.GetMouseButtonDown(0))
+        {
+            firePos.LookAt(camLook);
 
-        Instantiate(bullet, firePos.position, firePos.rotation);
+            Instantiate(bullet, firePos.position, firePos.rotation);
 
-        SaveLog.SaveLine("Shoot");
+            SaveLog.SaveLine("Shoot");
+        }
     }
 }

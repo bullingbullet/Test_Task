@@ -15,16 +15,25 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(speed * Time.deltaTime * Vector3.forward);
+        BulletTranslatePosition();
 
-        Debug.DrawLine(lastPos, transform.position);
+        BulletCheckHits();
+    }
+
+    private void BulletTranslatePosition()
+    {
+        transform.Translate(speed * Time.deltaTime * Vector3.forward);
+    }
+
+    private void BulletCheckHits()
+    {
         if (Physics.Linecast(lastPos, transform.position, out RaycastHit hit))
         {
             if (hit.collider.gameObject.CompareTag("Agent"))
             {
                 Destroy(hit.collider.gameObject);
-                
-                SaveLog.SaveLine("Hit agent");  
+
+                SaveLog.SaveLine("Hit agent");
             }
 
             if (!hit.collider.gameObject.CompareTag("AgentBullet"))
